@@ -1,0 +1,97 @@
+{
+	"ad": {
+		"title": "",
+		"content": ""
+	},
+	"news_7": [{
+		"title": "Important Notices",
+		"list": [{
+			"id": 13,
+			"date": "2016/12/19",
+			"title": "Quick start BiND 7",
+			"modal_link": "https://digitalstage.jp/common/info/20161219/trial.html",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "BiND CAMP",
+		"list": [{
+			"id": 29,
+			"date": "2017/5/31",
+			"title": "Make with SiGN",
+			"content": "<img src='https://module.bindsite.jp/bindcld/sitetheater/images/notification1706-03.png' alt='notification1706-03'>We will introduce the points when making top images preferred by smartphones using BiND's image editing function [SiGN Pro].",
+			"ext_link": "https://bindcamp.digitalstage.jp/?p=8553",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "Support information",
+		"list": [{
+			"id": 14,
+			"date": "2016/12/28",
+			"title": "Official guidebook special edition [How to use BiND Press] Notice provided by PDF",
+			"content": "We have prepared the official guidebook special edition [How to use BiND Press (PDF)] for those who have signed more than BiND cloud pro course or more (including BiND 9 special course). Please login to the BiND cloud and download and use it.",
+			"ext_link": "http://dsnews.me/2ipxNkv",
+			"is_show": "true"
+		}]
+	}],
+	"news_8": [{
+		"title": "Important Notices",
+		"list": [{
+			"id": 13,
+			"date": "2016/12/19",
+			"title": "Quick start BiND 8",
+			"modal_link": "https://digitalstage.jp/common/info/20161219/trial.html",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "BiND CAMP",
+		"list": [{
+			"id": 29,
+			"date": "2017/5/31",
+			"title": "Make with SiGN",
+			"content": "<img src='https://module.bindsite.jp/bindcld/sitetheater/images/notification1706-03.png' alt='notification1706-03'>We will introduce the points when making top images preferred by smartphones using BiND's image editing function [SiGN Pro].",
+			"ext_link": "https://bindcamp.digitalstage.jp/?p=8553",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "Support information",
+		"list": [{
+			"id": 14,
+			"date": "2016/12/28",
+			"title": "Official guidebook special edition [How to use BiND Press] Notice provided by PDF",
+			"content": "We have prepared the official guidebook special edition [How to use BiND Press (PDF)] for those who have signed more than BiND cloud pro course or more (including BiND 9 special course). Please login to the BiND cloud and download and use it.",
+			"ext_link": "http://dsnews.me/2ipxNkv",
+			"is_show": "true"
+		}]
+	}],
+	"news_9": [{
+		"title": "Important Notices",
+		"list": [{
+			"id": 13,
+			"date": "2016/12/19",
+			"title": "Quick start BiND 9",
+			"modal_link": "https://digitalstage.jp/common/info/20161219/trial.html",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "BiND CAMP",
+		"list": [{
+			"id": 29,
+			"date": "2017/5/31",
+			"title": "Make with SiGN",
+			"content": "<img src='https://module.bindsite.jp/bindcld/sitetheater/images/notification1706-03.png' alt='notification1706-03'>We will introduce the points when making top images preferred by smartphones using BiND's image editing function [SiGN Pro].",
+			"ext_link": "https://bindcamp.digitalstage.jp/?p=8553",
+			"is_show": "true"
+		}]
+	}, {
+		"title": "Support information",
+		"list": [{
+			"id": 14,
+			"date": "2016/12/28",
+			"title": "Official guidebook special edition [How to use BiND Press] Notice provided by PDF",
+			"content": "We have prepared the official guidebook special edition [How to use BiND Press (PDF)] for those who have signed more than BiND cloud pro course or more (including BiND 9 special course). Please login to the BiND cloud and download and use it.",
+			"ext_link": "http://dsnews.me/2ipxNkv",
+			"is_show": "true"
+		}]
+	}],
+	"schedule": []
+}

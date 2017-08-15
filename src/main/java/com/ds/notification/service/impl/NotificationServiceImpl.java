@@ -4,13 +4,11 @@
 package com.ds.notification.service.impl;
 
 import com.ds.notification.entity.*;
+import com.ds.notification.model.request.BindVersionRequest;
 import com.ds.notification.model.request.NotificationRequest;
-import com.ds.notification.model.response.NotificationResponse;
 import com.ds.notification.service.NotificationService;
 import com.ds.notification.transformer.NotificationTransformer;
 import com.google.gson.Gson;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,46 +30,61 @@ public class NotificationServiceImpl implements NotificationService {
     @Autowired
     private NotificationTransformer transformer;
 
-    private CommonNotification cache = new CommonNotification();
+    private CommonNotification notification;
     private String filePath = "/home/trungdovan/notification.json";
     private Gson gson = new Gson();
 
-    @Override
-    public Object get(Integer bvs) throws IOException, ParseException {
+    public NotificationServiceImpl() throws FileNotFoundException {
         FileReader reader = new FileReader(filePath);
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-        CommonNotification notification = gson.fromJson(jsonObject.toJSONString(), CommonNotification.class);
-        cache = notification;
-        switch (bvs){
-            case 7:
-                return transformer.convertBind7ToResponse(notification.getNews_7());
-            case 8:
-                return transformer.convertBind8ToResponse(notification.getNews_8());
-            case 9:
-                return transformer.convertBind9ToResponse(notification.getNews_9());
-            default: return null;
-        }
+        notification = gson.fromJson(reader, CommonNotification.class);
     }
 
     @Override
-    public String update(List<NotificationRequest> request, Integer bvs) throws IOException {
-        switch (bvs){
-            case 7:
-                cache.setNews_7(transformer.convertRequestToBind7(request));
-                break;
-            case 8:
-                cache.setNews_8(transformer.convertRequestToBind8(request));
-                break;
-            case 9:
-                cache.setNews_9(transformer.convertRequestToBind9(request));
-                break;
-        }
+    public Object get(String bvs) throws IOException, ParseException {
+        List<BindVersion> bind = notification.getNews().stream().filter((item)-> item.getVersion().equals(bvs)).collect(Collectors.toList());
+        return transformer.convertBindDataToResponse(bind.get(0).getData());
+    }
+
+    @Override
+    public String update(List<NotificationRequest> request, String bvs) throws IOException {
+
+        List<BindVersion> bind = notification.getNews().stream().map(o -> {
+            if(o.getVersion().equals(bvs)){
+                return transformer.convertRequestToBindVersion(request, bvs);
+            }
+            return o;
+        }).collect(Collectors.toList());
+        notification.setNews(bind);
+        return writeFile(notification);
+    }
+
+    @Override
+    public Object getBindVersion() throws IOException, ParseException {
+        return convertToBindVersion(notification.getNews());
+    }
+
+    @Override
+    public String addBindVersion(BindVersionRequest request) throws FileNotFoundException {
+        BindVersion bindVersion = new BindVersion();
+        bindVersion.setVersion(request.getVersion());
+        bindVersion.setData(new ArrayList<>());
+        notification.getNews().add(bindVersion);
+        return writeFile(notification);
+    }
+
+    private String writeFile(CommonNotification notification) throws FileNotFoundException {
         PrintWriter writer = new PrintWriter(filePath);
         writer.print("");
-        writer.print(gson.toJson(cache));
+        writer.print(gson.toJson(notification));
         writer.close();
         return "OK";
+    }
+
+    private List<String> convertToBindVersion(List<BindVersion> versions){
+        Function<BindVersion, String> func = (item) -> {
+            return item.getVersion();
+        };
+        return versions.stream().map(func).collect(Collectors.toList());
     }
 
     // This is customized each bind version
@@ -83,7 +96,7 @@ public class NotificationServiceImpl implements NotificationService {
         for(int i =0; i < requests.size(); i ++){
             Bind7Model bind7Model = new Bind7Model();
             bind7Model.setTitle(requests.get(i).getTitle());
-            List<NewsDetailModel> list = new ArrayList<>();
+            List<NewsDetail> list = new ArrayList<>();
             list.add(convertRequestToNews(requests.get(i)));
 
             for(int j =i+1; j < requests.size(); j ++){
@@ -104,6 +117,6 @@ public class NotificationServiceImpl implements NotificationService {
         return bind7Models;
 
     }*/
-    
+
 
 }

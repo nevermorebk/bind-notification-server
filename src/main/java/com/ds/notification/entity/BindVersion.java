@@ -8,30 +8,28 @@ import java.util.List;
 /**
  * Author : Quang Tran Dang
  * Email: trandangquanghust@gmail.com
- * 09/08/2017
+ * 15/08/2017
  */
 
 
-public class Bind8Model {
+public class BindVersion {
 
-    private String title;
+    public String version;
+    public List<BindData> data;
 
-    private List<NewsDetail> list;
-
-    public String getTitle() {
-        return title;
+    public String getVersion() {
+        return version;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public List<NewsDetail> getList() {
-        return list;
+    public List<BindData> getData() {
+        return data;
     }
 
-    public void setList(List<NewsDetail> list) {
-        this.list = list;
+    public void setData(List<BindData> data) {
+        this.data = data;
     }
-
 }

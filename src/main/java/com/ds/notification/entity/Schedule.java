@@ -10,5 +10,5 @@ package com.ds.notification.entity;
  */
 
 
-public class ScheduleModel {
+public class Schedule {
 }

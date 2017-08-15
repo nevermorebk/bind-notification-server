@@ -3,9 +3,7 @@
  **************************************************************************/
 package com.ds.notification.transformer;
 
-import com.ds.notification.entity.Bind7Model;
-import com.ds.notification.entity.Bind8Model;
-import com.ds.notification.entity.Bind9Model;
+import com.ds.notification.entity.*;
 import com.ds.notification.model.request.NotificationRequest;
 import com.ds.notification.model.response.NotificationResponse;
 
@@ -20,16 +18,9 @@ import java.util.List;
 
 public interface NotificationTransformer {
 
-    List<Bind7Model> convertRequestToBind7(List<NotificationRequest> requests);
+    BindVersion convertRequestToBindVersion(List<NotificationRequest> requests, String version);
 
-    List<Bind8Model> convertRequestToBind8(List<NotificationRequest> requests);
+    List<NotificationResponse> convertBindDataToResponse(List<BindData> models);
 
-    List<Bind9Model> convertRequestToBind9(List<NotificationRequest> requests);
-
-    List<NotificationResponse> convertBind7ToResponse(List<Bind7Model> models);
-
-    List<NotificationResponse> convertBind8ToResponse(List<Bind8Model> models);
-
-    List<NotificationResponse> convertBind9ToResponse(List<Bind9Model> models);
 
 }

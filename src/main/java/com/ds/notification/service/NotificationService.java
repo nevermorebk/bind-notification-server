@@ -3,9 +3,11 @@
  **************************************************************************/
 package com.ds.notification.service;
 
+import com.ds.notification.model.request.BindVersionRequest;
 import com.ds.notification.model.request.NotificationRequest;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +20,13 @@ import java.util.List;
 
 public interface NotificationService {
 
-    Object get(Integer bvs) throws IOException, ParseException;
-    String update(List<NotificationRequest> request, Integer bvs) throws IOException;
+    Object get(String bvs) throws IOException, ParseException;
+
+    String update(List<NotificationRequest> request, String bvs) throws IOException;
+
+    Object getBindVersion() throws IOException, ParseException;
+
+    String addBindVersion(BindVersionRequest request) throws FileNotFoundException;
+
 
 }

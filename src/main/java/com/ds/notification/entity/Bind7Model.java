@@ -16,7 +16,7 @@ public class Bind7Model {
 
     private String title;
 
-    private List<NewsDetailModel> list;
+    private List<NewsDetail> list;
 
     public String getTitle() {
         return title;
@@ -26,11 +26,11 @@ public class Bind7Model {
         this.title = title;
     }
 
-    public List<NewsDetailModel> getList() {
+    public List<NewsDetail> getList() {
         return list;
     }
 
-    public void setList(List<NewsDetailModel> list) {
+    public void setList(List<NewsDetail> list) {
         this.list = list;
     }
 

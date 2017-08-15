@@ -3,17 +3,20 @@
  **************************************************************************/
 package com.ds.notification.entity;
 
+import java.util.List;
 
 /**
  * Author : Quang Tran Dang
  * Email: trandangquanghust@gmail.com
- * 09/08/2017
+ * 15/08/2017
  */
 
-public class AdModel {
+
+public class BindData {
 
     private String title;
-    private String content;
+
+    private List<NewsDetail> list;
 
     public String getTitle() {
         return title;
@@ -23,11 +26,11 @@ public class AdModel {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public List<NewsDetail> getList() {
+        return list;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setList(List<NewsDetail> list) {
+        this.list = list;
     }
 }
